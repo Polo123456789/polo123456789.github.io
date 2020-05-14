@@ -1,168 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title></title>
-  <style>
-  html, body {
-    height: 100%;
-    margin: 0;
-  }
-
-  body {
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  canvas {
-    border: 1px solid white;
-  }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumen La Celula</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
 </head>
-<body>
-<canvas width="400" height="400" id="game"></canvas>
-<script>
-var canvas = document.getElementById('game');
-var context = canvas.getContext('2d');
 
-var grid = 16;
-var count = 0;
-  
-var snake = {
-  x: 160,
-  y: 160,
-  
-  // snake velocity. moves one grid length every frame in either the x or y direction
-  dx: grid,
-  dy: 0,
-  
-  // keep track of all grids the snake body occupies
-  cells: [],
-  
-  // length of the snake. grows when eating an apple
-  maxCells: 4
-};
-var apple = {
-  x: 320,
-  y: 320
-};
-
-// get random whole numbers in a specific range
-// @see https://stackoverflow.com/a/1527820/2124254
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-// game loop
-function loop() {
-  requestAnimationFrame(loop);
-
-  // slow game loop to 15 fps instead of 60 (60/15 = 4)
-  if (++count < 4) {
-    return;
-  }
-
-  count = 0;
-  context.clearRect(0,0,canvas.width,canvas.height);
-
-  // move snake by it's velocity
-  snake.x += snake.dx;
-  snake.y += snake.dy;
-
-  // wrap snake position horizontally on edge of screen
-  if (snake.x < 0) {
-    snake.x = canvas.width - grid;
-  }
-  else if (snake.x >= canvas.width) {
-    snake.x = 0;
-  }
-  
-  // wrap snake position vertically on edge of screen
-  if (snake.y < 0) {
-    snake.y = canvas.height - grid;
-  }
-  else if (snake.y >= canvas.height) {
-    snake.y = 0;
-  }
-
-  // keep track of where snake has been. front of the array is always the head
-  snake.cells.unshift({x: snake.x, y: snake.y});
-
-  // remove cells as we move away from them
-  if (snake.cells.length > snake.maxCells) {
-    snake.cells.pop();
-  }
-
-  // draw apple
-  context.fillStyle = 'red';
-  context.fillRect(apple.x, apple.y, grid-1, grid-1);
-
-  // draw snake one cell at a time
-  context.fillStyle = 'green';
-  snake.cells.forEach(function(cell, index) {
-    
-    // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
-    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
-
-    // snake ate apple
-    if (cell.x === apple.x && cell.y === apple.y) {
-      snake.maxCells++;
-
-      // canvas is 400x400 which is 25x25 grids 
-      apple.x = getRandomInt(0, 25) * grid;
-      apple.y = getRandomInt(0, 25) * grid;
-    }
-
-    // check collision with all cells after this one (modified bubble sort)
-    for (var i = index + 1; i < snake.cells.length; i++) {
-      
-      // snake occupies same space as a body part. reset game
-      if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-        snake.x = 160;
-        snake.y = 160;
-        snake.cells = [];
-        snake.maxCells = 4;
-        snake.dx = grid;
-        snake.dy = 0;
-
-        apple.x = getRandomInt(0, 25) * grid;
-        apple.y = getRandomInt(0, 25) * grid;
-      }
-    }
-  });
-}
-
-// listen to keyboard events to move the snake
-document.addEventListener('keydown', function(e) {
-  // prevent snake from backtracking on itself by checking that it's 
-  // not already moving on the same axis (pressing left while moving
-  // left won't do anything, and pressing right while moving left
-  // shouldn't let you collide with your own body)
-  
-  // left arrow key
-  if (e.which === 37 && snake.dx === 0) {
-    snake.dx = -grid;
-    snake.dy = 0;
-  }
-  // up arrow key
-  else if (e.which === 38 && snake.dy === 0) {
-    snake.dy = -grid;
-    snake.dx = 0;
-  }
-  // right arrow key
-  else if (e.which === 39 && snake.dx === 0) {
-    snake.dx = grid;
-    snake.dy = 0;
-  }
-  // down arrow key
-  else if (e.which === 40 && snake.dy === 0) {
-    snake.dy = grid;
-    snake.dx = 0;
-  }
-});
-
-// start the game
-requestAnimationFrame(loop);
-</script>
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="la-celula-y-su-metabolismo">La celula y su metabolismo</h1>
+<h2 id="descubrimiento-y-teoria-celular">Descubrimiento y teoria celular:</h2>
+<p>La celula es considerada la unidad biologica fundamental. Esta fue descubierta con el uso del microscopio (inventado en 1590 por Zacharias Janssen) cercano al año 1665 por Robert Hooke, y con un microscopio afinado en el 1674 Anton Leeuwenhoek se pudieron ver al fin muchos tipos de celulas.</p>
+<p>El botanico Matthias Schleiden y el zoologo Theodor Schwann reconocieron las similitudes fundamentales entre las celulas animales y las vegetales, estableciendo en 1839 el primer principio de la teoria celular.</p>
+<p>En la actualidad la teoria celular incluye los siguientes  principios:</p>
+<ol>
+<li><strong>Unidad Estructural:</strong> La célula es la unidad estructural de la materia viva, y dentro de los diferentes niveles de complejidad biológica, una célula puede ser suficiente para constituir un organismo.</li>
+<li><strong>Unidad de Origen:</strong> Toda celula procede de una celula preexistente</li>
+<li><strong>Unidad Fisiologica:</strong> Pues las fucniones de los organismos dependen de el funcionamiento de las celulas</li>
+<li><strong>Unidad Genetica:</strong> Pues contiene toda la informacion hereditaria para el desarrollo, fucnionamiento y reproduccion de los seres vivos</li>
+</ol>
+<p>Considerando estas propuestas los seres vivos suelen clasificarse genericamente en:</p>
+<ul>
+<li>Unicelulares</li>
+<li>Multicelulares</li>
+<li>Pluricelulares</li>
+</ul>
+<h2 id="origen-evolucion-y-tipos">Origen, Evolucion y Tipos</h2>
+<h3 id="teorias-del-origen-de-la-vida">Teorias del origen de la vida:</h3>
+<ul>
+<li>Creacionismo</li>
+<li>Generacion Espontanea</li>
+<li>Panspermia</li>
+<li>Sintesis Abiotica</li>
+</ul>
+<h3 id="tipos">Tipos:</h3>
+<ul>
+<li><strong>Procariontes:</strong> Carentes de nucleo.</li>
+<li><strong>Eucariontes:</strong> Con nucleo.<br>
+Se estima que se paso de celulas procariontes a eucariontes hace 1 500 millones de años. Existen 2 teorias principales que explicarian como sucedio:</li>
+<li><em>Plegamiento de membrana</em></li>
+<li><em>Endosimbiosis seriada</em></li>
+</ul>
+<h2 id="estructura-y-funcion-celular">Estructura y funcion celular</h2>
+<h4 id="nucleo">Nucleo:</h4>
+<p>Coordina la actividad de la celula, almacena la informacion genetica y organiza los procesos de divicion celular y reproduccion.<br>
+<img src="https://concepto.de/wp-content/uploads/2018/08/nucleo-celular1-e1535469164136.jpg" alt="Nucleo" width="500" height="250"></p>
+<h4 id="citoplasma">Citoplasma:</h4>
+<p>Es una sustancia en estado coloidal<sup class="footnote-ref"><a href="#fn1" id="fnref1">1</a></sup> en el que se hayan en suspencion distintas sustancias como proteinas, enzimas, etc. Este proporciona soporte hidroestatico, lleva a cabo procesos metabologicos como la respiracion anaerobia. Ademas en las eucariotas alberga a todos los organelos.<br>
+<img src="https://www.caracteristicas.co/wp-content/uploads/2016/07/citoplasma-e1559360583901.png" alt="Citoplasma" width="500"></p>
+<h4 id="membrana-plasmatica">Membrana Plasmatica:</h4>
+<p>Esta delimita  a toda la celula y mantiene su integridad al protegerla del ambiente externo. Esta es la interfaz mediante la cual la celula intercambia con su entorno.<br>
+<img src="https://storage.googleapis.com/portaleducativo-net-publica-g3p6/biblioteca/membrana_plasmatica_1.jpg" alt="Membrana Plasmatica:" width="500"></p>
+<h4 id="pared-celular">Pared Celular:</h4>
+<p>Es la capa rigida externa de algunos tipos de celulas. En las eucariontes solo la encontramos en las plantas.<br>
+<img src="https://thumbs.dreamstime.com/b/pared-celular-55593490.jpg" alt="Pared Celular" width="300"></p>
+<h3 id="organelos-sin-membrana">Organelos sin membrana:</h3>
+<h4 id="ribosoma">Ribosoma:</h4>
+<p>Estas son pequeñas particulas formadas por ARN ribosomal. Colabora en la sintesis de proteinas.<br>
+<img src="https://i2.wp.com/www.mariairanzobiotec.com/wp-content/uploads/2016/09/RIBOSOMA.jpg?fit=380%2C286&amp;ssl=1" alt="Ribosoma"></p>
+<h4 id="centrosoma-y-centriolo">Centrosoma y Centriolo</h4>
+<p>El centrosoma es una estructura que sirve como organizador de microtubulos<sup class="footnote-ref"><a href="#fn2" id="fnref2">2</a></sup>. Cada uno de estos esta formado por dos centriolos, que a su vez estan formados por nueve tripletes de microtubos. Este colabora en el proceso de la mitosis.<br>
+<img src="https://i.ytimg.com/vi/osTblO1Gqqk/maxresdefault.jpg" alt="Centrosoma" width="500"></p>
+<h4 id="cilios-y-flagelos">Cilios y Flagelos</h4>
+<p>Estos funcionan como apendices moviles de la celula, colaborando con el movimiento de la misma. En el caso de los cilios tambien pueden ayudar a la celula a anclarse<br>
+<em>Cilios</em>:<br>
+<img src="https://i.ytimg.com/vi/paht1uf5O7k/maxresdefault.jpg" alt="cilios" width="500"><br>
+<em>Flagelos:</em><br>
+<img src="https://www.ecured.cu/images/thumb/b/b3/Flagelo.jpg/260px-Flagelo.jpg" alt="Flagelo"></p>
+<h4 id="citoesqueleto">Citoesqueleto:</h4>
+<p>Da estabilidad y mantiene la forma de las celulas.<br>
+<img src="https://www.celulaanimal.info/wp-content/uploads/2019/11/Citoesqueleto.jpg" alt="CITOESQUELETO" width="500"></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Como la gelatina <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>COMT <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</div>
 </body>
+
 </html>
