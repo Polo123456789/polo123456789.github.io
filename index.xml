@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://polo123456789.github.io/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Mon, 06 Jul 2020 18:44:37 -0600</lastBuildDate>
+    
+	<atom:link href="https://polo123456789.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>cpp: Hola Mundo</title>
+      <link>https://polo123456789.github.io/tutoriales/hmcpp/</link>
+      <pubDate>Mon, 06 Jul 2020 18:44:37 -0600</pubDate>
+      
+      <guid>https://polo123456789.github.io/tutoriales/hmcpp/</guid>
+      <description>Un clasico
+#include&amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &amp;#34;Hola Mundo\n&amp;#34; return 0; } </description>
+    </item>
+    
+    <item>
+      <title>Detalles Previos</title>
+      <link>https://polo123456789.github.io/sdiamond/dp/</link>
+      <pubDate>Mon, 06 Jul 2020 18:40:15 -0600</pubDate>
+      
+      <guid>https://polo123456789.github.io/sdiamond/dp/</guid>
+      <description>Small Diamond Esta seria una libreria simple construida sobre SDL para volverla orientada a objetos y para simplificar el proceso de creacion de videojuegos en 2d, ademas de automatizar la limpieza de memoria que requiere SDL. Como un agregado tiene un sistema de registros con macros bastante simple con macros para ayudar a la depuracion y para dar mensajes de error y advertencia de parte de la libreria, ademas de un timer.</description>
+    </item>
+    
+    <item>
+      <title>Primer Post</title>
+      <link>https://polo123456789.github.io/blog/primerpost/</link>
+      <pubDate>Mon, 06 Jul 2020 18:17:02 -0600</pubDate>
+      
+      <guid>https://polo123456789.github.io/blog/primerpost/</guid>
+      <description>Ya salio
+#include&amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &amp;#34;Hola Mundo\n&amp;#34;; return 0; } </description>
+    </item>
+    
+    <item>
+      <title>get in touch</title>
+      <link>https://polo123456789.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://polo123456789.github.io/contact/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

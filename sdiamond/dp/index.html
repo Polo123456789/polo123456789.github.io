@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Programador en C/C&#43;&#43;, Python y VB">
+    <meta name="Author" content="Pablo Sanchez">
+    <meta name="keywords" content="blog programacion">
+    <link rel="stylesheet" href=https://polo123456789.github.io/css/syntax.css>
+    <link rel="stylesheet" href=https://polo123456789.github.io/css/style.css>
+    <script src="https://kit.fontawesome.com/1b7478c139.js" crossorigin="anonymous"></script>
+    <title></title>
+  </head><body><aside id="sidenav">
+    <header>
+    
+
+    <a id="branding" href=https://polo123456789.github.io/>
+        
+            
+        
+    </a>
+    </header>
+
+    <nav>
+        
+            		
+            <a href="/"
+                
+            >
+                <i class="fas fa-home fa-sm"></i>
+                <span>Home</span>
+            </a>
+        
+            		
+            <a href="/blog/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>Blog</span>
+            </a>
+        
+            		
+            <a href="/sdiamond/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>sDiamond</span>
+            </a>
+        
+            		
+            <a href="/tutoriales/"
+                
+            >
+                <i class="fas fa-keyboard fa-ms"></i>
+                <span>Tutoriales</span>
+            </a>
+        
+            		
+            <a href="https://github.com/Polo123456789"
+                
+                    target="_blank"
+                
+            >
+                <i class="fab fa-github fa-ms"></i>
+                <span>Github</span>
+            </a>
+        
+    </nav>
+</aside>
+<main id="main">
+            <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
+            <div class="content">
+    
+    <h1 id="title">Detalles Previos</h1>
+    
+      
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#detalles-previos">Detalles Previos</a></li>
+  </ul>
+</nav>
+    <h1 id="small-diamond">Small Diamond</h1>
+<p>Esta seria una libreria simple construida sobre SDL para volverla orientada a objetos y para simplificar el proceso de creacion de
+videojuegos en 2d, ademas de automatizar la limpieza de memoria que requiere SDL. Como un agregado tiene un sistema de registros con
+macros bastante simple con macros para ayudar a la depuracion y para dar mensajes de error y advertencia de parte de la libreria,
+ademas de un timer.</p>
+<p><strong>Nota: Tanto las utilidades como sDiamond estan bajo la licencia Apache</strong></p>
+<p>El tutorial lo terminare cuando baje la carga de otros proyectos, pero lo que falta puedes ver como se hace en la rama &ldquo;example&rdquo;</p>
+<h2 id="detalles-previos">Detalles Previos</h2>
+<p>Como mencione al principio, este proyecto esta basado en SDL, asi que tendra que incluirlo tambien en su proyecto. En caso de estar en windows
+y que estes usando visual studio, estas de suerte ya que solo tienes que abrir el proyecto y ya estas listo para empezar a escribir tu juego.</p>
+<p>En linux instalas es paquete que corresponda para desarrollar en SDL. Puedes usar cmake, y ya que estamos, borrar <code>include</code> y <code>lib</code> ya que estos
+solo estarian funcionando en windows . Si deseas utilizar &ldquo;ps_utility.hpp&rdquo; puedes siempre y cuando no uses el timer, este es un problema que voy
+a tratar de resolver en corto.</p>
+<p>Y hablando de &ldquo;ps_utility.hpp&rdquo; en este header hay dos herramientas, un sistema de registros al que accedes definiendo:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#define PS_UTIL_LOG
+</span></code></pre></div><p>Usarias el log de la siguiente manera</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">    <span class="cm">/*
+</span><span class="cm">    * Los niveles son:
+</span><span class="cm">    * - WL_high (Rojo)
+</span><span class="cm">    * - WL_medium (Amarillo)
+</span><span class="cm">    * - WL_good (verde)
+</span><span class="cm">    * - WL_none 
+</span><span class="cm">    * - DB_data (Blanco)
+</span><span class="cm">    * - DB_result (Azul)
+</span><span class="cm">    */</span>
+    <span class="n">LOG</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+</code></pre></div><p>Y gracias a la forma en la que esta definido <code>#define LOG(level,message) std::cout&lt;&lt;level&lt;&lt;message&lt;&lt;&quot;\x1b[0m\n&quot;</code> nos permite hacer cosas como:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">    <span class="n">LOG</span><span class="p">(</span><span class="n">WL_none</span><span class="p">,</span> <span class="s">&#34;La pelota esta en la posicion (&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;, &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;)&#34;</span><span class="p">);</span>
+</code></pre></div><p>Lo que nos permite darle formato a los registros que hagamos. En caso de definir <code>PS_UTIL_LOG</code> tambien recivira mensajes de parte de sDiamod, como
+cuando creo un objeto, cuando se copia un objeto (si se copia una ventana por ejemplo, ya estamos cometiendo errores), si se cerro correctamente, y
+tambien recordatorios de cosas que no deve hacer.</p>
+<p>La otra herramienta es un timer al que accedes definiendo:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">    <span class="cp">#define PS_UTIL_TIMER
+</span></code></pre></div><p>Este fucniona casi de manera automatica, ya que mide su tiempo de vida. Recuerde que un objeto solo vide dentro de los <code>{}</code>. Por ejemplo:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">    <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">TIMER</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="s">&#34;Toda la app&#34;</span><span class="p">);</span>
+        <span class="p">{</span>
+            <span class="n">TIMER</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="s">&#34;Decir: Hola Mundo&#34;</span><span class="p">);</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Hola Mundo&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Adios Mundo&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div><p>Un ultimo detalle a tomar en cuenta es que el main queda sustituido por un macro, si estas en un IDE pon el siguiente codigo:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">    <span class="cp">#include</span><span class="cpf">&lt;SDL.h&gt; // &lt;SDL2/SDL.h&gt; en linux</span><span class="cp">
+</span><span class="cp"></span>
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</code></pre></div><p>Podras ver que el <code>main</code> queda como un macro que se sustituye por <code>SDL_main</code>. Esto es porque SDL tiene que hacer cosas antes de que puedas
+empezar a correr tu juego. Por ende vamos a usar el main de la siguiente manera <code>int main(int argc, char *argv[]) {}</code> para no tener conflictos
+con el macro de SDL</p>
+
+    
+    <div class="nav-next-prev">
+        <div class="nav-prev">
+            
+                <a class="grayed-out" href="javascript:void()"><i class="fas fa-chevron-left"></i></a>
+            
+        </div>
+        <a class="nav-top" href="#">top</i></a>
+        <div class="nav-next">
+            
+                <a class="grayed-out" href="javascript:void()"><i class="fas fa-chevron-right"></i></a>
+            
+        </div>
+    </div>
+    
+
+            </div><footer>
+<div class="footer-content">
+
+  <div class="contact-info">
+      
+          <div class="footer-mail">
+          <i class="far fa-envelope"></i> <a href="mailto:pabsan.dev@gmail.com">pabsan.dev@gmail.com</a> </div>
+      
+      
+      <div class="footer-phone">
+          <i class="fas fa-phone"></i> Nel 
+      </div>
+      
+  </div>
+
+
+<p class="copyright meta">Copyright © 2020</p>
+
+</div>
+</footer></main>
+    </body>
+    <script src=https://polo123456789.github.io/js/navbutton.js></script>
+</html>

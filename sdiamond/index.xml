@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SDiamonds on </title>
+    <link>https://polo123456789.github.io/sdiamond/</link>
+    <description>Recent content in SDiamonds on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2020</copyright>
+    <lastBuildDate>Mon, 06 Jul 2020 18:40:15 -0600</lastBuildDate>
+    
+	<atom:link href="https://polo123456789.github.io/sdiamond/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Detalles Previos</title>
+      <link>https://polo123456789.github.io/sdiamond/dp/</link>
+      <pubDate>Mon, 06 Jul 2020 18:40:15 -0600</pubDate>
+      
+      <guid>https://polo123456789.github.io/sdiamond/dp/</guid>
+      <description>Small Diamond Esta seria una libreria simple construida sobre SDL para volverla orientada a objetos y para simplificar el proceso de creacion de videojuegos en 2d, ademas de automatizar la limpieza de memoria que requiere SDL. Como un agregado tiene un sistema de registros con macros bastante simple con macros para ayudar a la depuracion y para dar mensajes de error y advertencia de parte de la libreria, ademas de un timer.</description>
+    </item>
+    
+  </channel>
+</rss>
