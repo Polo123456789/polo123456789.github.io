@@ -7,10 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright © 2020</copyright>
-    <lastBuildDate>Mon, 06 Jul 2020 18:40:15 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2020 08:44:29 -0600</lastBuildDate>
     
 	<atom:link href="https://polo123456789.github.io/sdiamond/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Render</title>
+      <link>https://polo123456789.github.io/sdiamond/render/</link>
+      <pubDate>Wed, 08 Jul 2020 08:44:29 -0600</pubDate>
+      
+      <guid>https://polo123456789.github.io/sdiamond/render/</guid>
+      <description>Ya aprendimos a poner imagenes en pantalla, y esta ves las hemos estado renderizando con software, realizando todos los calculos con el cpu. Ahora vamos a aprovechar la aceleracion por hardare que nos da la tarjeta grafica y pasarle la parte pesada a la misma. En parte tambien recomiendo usar esto ya que aun no he programado todas las funcionalidades con el rendering de software, solo las imagenes simples y sin nada mas.</description>
+    </item>
+    
+    <item>
+      <title>Imagenes</title>
+      <link>https://polo123456789.github.io/sdiamond/imagenes/</link>
+      <pubDate>Wed, 08 Jul 2020 08:41:46 -0600</pubDate>
+      
+      <guid>https://polo123456789.github.io/sdiamond/imagenes/</guid>
+      <description>De momento solo se pueden usar imagenes en bitmaps. El soporte para otros formatos lo implementare despues. Ahora vamos a tomar una imagen y vamos a colocarla en pantalla. En mi caso voy a utilizar una imagen de 64x64 llamada &amp;ldquo;imagen.bmp&amp;rdquo; que colocare en la carpeta del proyecto. Para usar las imagenes vamos a cargar un objeto sdmd::Image. Un detalle que nos importara mas tarde y te servira tener en la parte de atras de la cabeza es que cuando cargemos una imagen vamos a crear una superficie.</description>
+    </item>
+    
+    <item>
+      <title>Estructura del Videojuego</title>
+      <link>https://polo123456789.github.io/sdiamond/estructura/</link>
+      <pubDate>Wed, 08 Jul 2020 08:39:49 -0600</pubDate>
+      
+      <guid>https://polo123456789.github.io/sdiamond/estructura/</guid>
+      <description>Nuesta ventana esta chilera y todo, pero en realidad aun no estamos haciendo nada. Asi que ahora vamos a responder a las acciones del usuario. A las accioes de mouse y del teclado vamos a aprender a reaccionar luego, ya que ahora tambien quiero introducir un concepto muy importante, y es la estructura que siguen los juegos. Los juegos siguen la siguiente estructura:
+while(elJuegoCorra) { 1. Leemos los eventos del usuario 2.</description>
+    </item>
+    
+    <item>
+      <title>Primera Ventana</title>
+      <link>https://polo123456789.github.io/sdiamond/prvn/</link>
+      <pubDate>Wed, 08 Jul 2020 08:37:13 -0600</pubDate>
+      
+      <guid>https://polo123456789.github.io/sdiamond/prvn/</guid>
+      <description>En el momento en el que abres el proyecto por primera vez vas a tener esto:
+#define PS_UTIL_TIMER  #define PS_UTIL_LOG  #include &amp;lt;SDL.h&amp;gt; // En linux &amp;lt;SDL2/SDL.h&amp;gt; #include &amp;#34;ps_utility.hpp&amp;#34; #include &amp;#34;sDiamond.hpp&amp;#34; int main(int argc, char* argv[]) { if (!sdmd::init()) { sdmd::log_error(); sdmd::quit(); return 1; } sdmd::quit(); return 0; } Estas lineas definen los macros para que tengamos el timer y el sistema de registros:
+#define PS_UTIL_TIMER  #define PS_UTIL_LOG Luego incluimos SDL y sDiamond, como quiero los mensajes voy a incluir tambien ps_utility.</description>
+    </item>
     
     <item>
       <title>Detalles Previos</title>

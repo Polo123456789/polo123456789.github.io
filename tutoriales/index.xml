@@ -18,8 +18,8 @@
       <pubDate>Mon, 06 Jul 2020 18:44:37 -0600</pubDate>
       
       <guid>https://polo123456789.github.io/tutoriales/hmcpp/</guid>
-      <description>Un clasico
-#include&amp;lt;iostream&amp;gt; int main(void) { std::cout &amp;lt;&amp;lt; &amp;#34;Hola Mundo\n&amp;#34; return 0; } </description>
+      <description>Simplemente es obligatorio empezar los tutoriales de programacion con el famoso &amp;ldquo;Hola Mundo&amp;rdquo;. Vamos a colocar el programa linea por linea. Primero necesitamos una forma de decirle al usuario &amp;ldquo;Hola Mundo&amp;rdquo;, y para ello usaremos un stream de salida. El stream de salida no viene de gratis con C++, asi que tendremos que incluirlo. Aqui va la primera linea del codigo
+#include&amp;lt;iostream&amp;gt;iostream significa Input Output Stream, como dice el nombre, en este tendremos acceso a los streams de entrada y saida.</description>
     </item>
     
   </channel>
