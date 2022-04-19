@@ -1,7 +1,6 @@
 ---
 title: "Hola Mundo"
 date: 2022-04-19T10:11:46-06:00
-draft: true
 ---
 
 ```
